@@ -33,7 +33,7 @@ const Navbar = () => {
                 <ul className="flex items-center hidden space-x-8 lg:flex">
                     <li>
                         <Link
-                            to="/"
+                            to="/addTask"
                             aria-label="Add Task"
                             title="Add Task"
                             className="font-medium tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400"
@@ -43,7 +43,7 @@ const Navbar = () => {
                     </li>
                     <li>
                         <Link
-                            to="/"
+                            to="/myTask"
                             aria-label="My Task"
                             title="My Task"
                             className="font-medium tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400"
@@ -132,7 +132,7 @@ const Navbar = () => {
                                     <ul className="space-y-4">
                                         <li>
                                             <Link
-                                                to="/"
+                                                to="/addTask"
                                                 aria-label="Add Task"
                                                 title="Add Task"
                                                 className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
@@ -142,7 +142,7 @@ const Navbar = () => {
                                         </li>
                                         <li>
                                             <Link
-                                                to="/"
+                                                to="/myTask"
                                                 aria-label="My Task"
                                                 title="My Task"
                                                 className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
