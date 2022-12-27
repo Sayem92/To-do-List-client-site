@@ -12,7 +12,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <img src="https://i.ibb.co/r0qHbTh/to-do-list.png" alt="" className="w-5/6 mx-auto mb-12 -mt-20 rounded-lg shadow-md lg:-mt-40 bg-gray-500" />
+            <img src="https://i.ibb.co/k5TGTcX/getty-941893182-388611.jpg" alt="to-do list" className="w-5/6 mx-auto mb-12 -mt-20 rounded-lg shadow-md lg:-mt-40 bg-gray-500" />
         </section>
     );
 };
