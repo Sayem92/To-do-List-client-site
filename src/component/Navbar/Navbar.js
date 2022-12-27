@@ -1,8 +1,20 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const { user, logOut } = useContext(AuthContext);
+    const navigate = useNavigate();
+    
+
+    const handleLogout = () => {
+        logOut()
+            .then(() => {
+                navigate('/')
+            })
+            .then(err => console.log(err))
+    }
 
     return (
         <div className="px-4 md:px-20 py-8 bg-gray-800 text-white">
@@ -15,7 +27,7 @@ const Navbar = () => {
                 >
 
                     <span className="ml-2 text-xl font-bold tracking-wide text-white uppercase">
-                       To-do List
+                        To-do List
                     </span>
                 </Link>
                 <ul className="flex items-center hidden space-x-8 lg:flex">
@@ -50,6 +62,15 @@ const Navbar = () => {
                         </Link>
                     </li>
                 </ul>
+                <ul className="flex items-center hidden space-x-8 lg:flex">
+                    <li>
+                        {
+                            user?.uid &&
+                            <button onClick={handleLogout}
+                                className='btn px-2 py-3 font-medium bg-gray-400 hover:bg-gray-500 border-none text-white rounded-xl'>Log out</button>
+                        }
+                    </li>
+                </ul>
 
 
                 <div className="lg:hidden">
@@ -75,7 +96,7 @@ const Navbar = () => {
                         </svg>
                     </button>
                     {isMenuOpen && (
-                        <div className="absolute top-0 left-0 w-full">
+                        <div className="z-10 absolute top-0 left-0 w-full">
                             <div className="p-5 bg-white border rounded shadow-sm">
                                 <div className="flex items-center justify-between mb-4">
                                     <div>
@@ -87,7 +108,7 @@ const Navbar = () => {
                                         >
 
                                             <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-                                            To-do List
+                                                To-do List
                                             </span>
                                         </Link>
                                     </div>
@@ -138,6 +159,13 @@ const Navbar = () => {
                                             >
                                                 Completed Tasks
                                             </Link>
+                                        </li>
+                                        <li>
+                                            {
+                                                user?.uid &&
+                                                <button onClick={handleLogout}
+                                                    className='btn px-3 py-3 font-medium bg-gray-400 hover:bg-gray-500 border-none text-black rounded'>Log out</button>
+                                            }
                                         </li>
                                     </ul>
                                 </nav>

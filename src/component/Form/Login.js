@@ -11,7 +11,7 @@ const Login = () => {
     const [email, setEmail] = useState(null);
 
     const handleLogin = data => {
-        console.log(data.email, data.password);
+
         setLoginError('');
         signIn(data.email, data.password)
             .then(Result => {
@@ -29,7 +29,6 @@ const Login = () => {
 
      // password reset-----------------
      const handlePasswordReset = () => {
-        console.log('password reset');
         if (email === null) {
             return toast('Please enter your email');
         }
@@ -42,7 +41,6 @@ const Login = () => {
 
      // google login----------------
      const handleGoogleLogin = () => {
-        console.log("google login");
         googleLogin()
             .then(result => {
                 const user = result.user;
