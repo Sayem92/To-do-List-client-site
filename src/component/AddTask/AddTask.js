@@ -25,7 +25,8 @@ const AddTask = () => {
                    const addTask = {
                     title: data.title,
                     image: imgData.data.display_url,
-                    description : data.description
+                    description : data.description,
+                    completed: false
                    }
 
                    fetch('http://localhost:5000/addTask',{
