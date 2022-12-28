@@ -42,7 +42,7 @@ const MyTask = () => {
     }
 
     if (!myAllTask.length) {
-        return <div className='p-4 mt-6'>
+        return <div className='p-5 mt-8 md:pb-44 flex justify-center'>
             <h1 className='text-3xl text-yellow-500'>No Task Added!.
                 <span className='text-blue-500 underline'
                 ><Link to='/addTask'> Please add any Task</Link></span>
@@ -93,14 +93,12 @@ const MyTask = () => {
                                     <p>{task.description}</p>
                                 </td>
                                 <td className="px-3 py-2">
-                                <Link to='/completedTask'>
                                 <button className='px-2 py-3 rounded bg-green-500 text-white'>
                                    
                                     {
-                                        task.completed === "true" ? "Completed" : "UnCompleted"
+                                        task.completed === "true" ? "Completed" : "Not Completed"
                                     }
                                     </button>
-                                </Link>
                                 </td>
                                 <td className="px-3 py-2">
                                     <Link to={`/updateTask/${task._id}`} >

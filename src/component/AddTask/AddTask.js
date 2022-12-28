@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const AddTask = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -92,10 +92,15 @@ const AddTask = () => {
                     {errors.description && <p className='text-red-600'>{errors.description?.message}</p>}
 
 
-                    <div className="mt-6">
+                    <div className="mt-6 flex justify-center gap-32">
                         <button className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-green-500 rounded-lg hover:bg-green-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
                             Submit
                         </button>
+                        <Link to="/completedTask">
+                        <button className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-sky-500 rounded-lg hover:bg-sky-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
+                            Completed
+                        </button>
+                        </Link>
 
                     </div>
                 </form>

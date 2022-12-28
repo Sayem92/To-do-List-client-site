@@ -53,7 +53,7 @@ const Navbar = () => {
                     </li>
                     <li>
                         <Link
-                            to="/"
+                            to="/completedTask"
                             aria-label="Completed Tasks"
                             title="Completed Tasks"
                             className="font-medium tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400"
@@ -152,7 +152,7 @@ const Navbar = () => {
                                         </li>
                                         <li>
                                             <Link
-                                                to="/"
+                                                to="/completedTask"
                                                 aria-label="Completed Tasks"
                                                 title="Completed Tasks"
                                                 className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"

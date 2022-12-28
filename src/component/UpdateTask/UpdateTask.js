@@ -147,7 +147,7 @@ const UpdateTask = () => {
 
 
 
-                    <RadioGroup value={complete} onChange={setComplete}>
+                    <RadioGroup value={complete} onChange={setComplete} className='flex justify-between'>
                         <RadioGroup.Option value="true" className='my-5'>
                             {({ checked }) => (
                                 <span className={checked ? 'bg-blue-600 px-4 py-2 rounded-l-md' : 'px-4 py-2 rounded-l-md bg-gray-300'}>Completed</span>
