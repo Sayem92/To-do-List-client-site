@@ -6,45 +6,50 @@ import { Link, useNavigate } from 'react-router-dom';
 const AddTask = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const imageHostKey = process.env.REACT_APP_IMGBB_key;
-   const navigate = useNavigate()
+    const navigate = useNavigate()
 
     const handleAddTask = data => {
-       
-        const image = data.image[0]
-        const formData = new FormData();
-        formData.append('image', image)
-        const url = `https://api.imgbb.com/1/upload?key=${imageHostKey}`;
-        fetch(url, {
-            method: "POST",
-            body: formData
-        })
-            .then(res => res.json())
-            .then(imgData => {
-                if (imgData.success) {
-             
-                   const addTask = {
-                    title: data.title,
-                    image: imgData.data.display_url,
-                    description : data.description,
-                    completed: false
-                   }
 
-                   fetch('http://localhost:5000/addTask',{
-                    method: 'POST',
-                    headers: {'Content-Type':'application/json'},
-                    body: JSON.stringify(addTask)
-                   })
-                   .then(res => res.json())
-                        .then(result => {
-                            // console.log(result);
-                            toast.success(`${data.title} Task save successful`);
-                            navigate('/myTask');
-                        })
-                   
-                }
+        if (data.image.length === 0) {
+            return alert('Please upload a new image');
+        }
+        else {
+            const image = data.image[0]
+            const formData = new FormData();
+            formData.append('image', image)
+            const url = `https://api.imgbb.com/1/upload?key=${imageHostKey}`;
+            fetch(url, {
+                method: "POST",
+                body: formData
             })
+                .then(res => res.json())
+                .then(imgData => {
+                    if (imgData.success) {
+
+                        const addTask = {
+                            title: data.title,
+                            image: imgData.data.display_url,
+                            description: data.description,
+                            completed: false
+                        }
+
+                        fetch('http://localhost:5000/addTask', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(addTask)
+                        })
+                            .then(res => res.json())
+                            .then(result => {
+                                // console.log(result);
+                                toast.success(`${data.title} Task save successful`);
+                                navigate('/myTask');
+                            })
+
+                    }
+                })
 
 
+        }
     };
 
 
@@ -97,9 +102,9 @@ const AddTask = () => {
                             Submit
                         </button>
                         <Link to="/completedTask">
-                        <button className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-sky-500 rounded-lg hover:bg-sky-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
-                            Completed
-                        </button>
+                            <button className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-sky-500 rounded-lg hover:bg-sky-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
+                                Completed
+                            </button>
                         </Link>
 
                     </div>

@@ -54,7 +54,7 @@ const MyTask = () => {
         <div className="container md:py-20 p-2 mx-auto sm:p-4 dark:text-gray-100">
             <h2 className="mb-8 text-2xl text-center font-semibold leading-tight">My Task</h2>
             <div className="overflow-x-auto">
-                <table className="w-full p-6 text-sm text-left whitespace-nowrap">
+                <table className="w-full p-6 text-sm text-left ">
                     <colgroup>
                         <col className="w-5" />
                         <col />
@@ -75,9 +75,9 @@ const MyTask = () => {
                             <th className="p-3">Action</th>
                         </tr>
                     </thead>
-                    <tbody className="border-b dark:bg-gray-900 dark:border-gray-700">
+                    <tbody className="border dark:bg-gray-900 dark:border-gray-700">
                         {
-                            myAllTask?.map((task, i) => <tr key={task._id}>
+                            myAllTask?.map((task, i) => <tr key={task._id} className='border'>
                                 <td className="px-3 text-2xl font-medium dark:text-gray-400">{i + 1}</td>
                                 <td className="px-3 py-2">
                                     <p>{task.title}</p>
@@ -85,7 +85,7 @@ const MyTask = () => {
                                 <td className="px-3 py-2">
                                     <div className="avatar">
                                         <div className="w-24 rounded-lg">
-                                            <img src={task.image} alt='' />
+                                            <img src={task.image} className='w-24 h-20' alt='' />
                                         </div>
                                     </div>
                                 </td>
