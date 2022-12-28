@@ -52,8 +52,8 @@ const CompletedTask = () => {
     };
 
     return (
-        <div className="container md:py-20 p-2 mx-auto sm:p-4 dark:text-gray-100">
-            <h2 className="mb-8 text-2xl text-center font-semibold leading-tight">Completed Task</h2>
+        <div className=" md:py-20 p-2 md:px-10 sm:p-4  dark:bg-black text-white">
+            <h2 className="mb-8 text-2xl text-center font-semibold leading-tight text-black dark:text-white">Completed Task</h2>
             <div className="overflow-x-auto">
                 <table className="w-full p-6 text-sm text-left">
                     <colgroup>
@@ -66,7 +66,7 @@ const CompletedTask = () => {
                         <col className="w-5" />
                     </colgroup>
                     <thead>
-                        <tr className="dark:bg-gray-700 bg-gray-400">
+                        <tr className="dark:bg-gray-700 bg-gray-600 border dark:border-gray-700">
                             <th className="p-3"></th>
                             <th className="p-3">Title</th>
                             <th className="p-3">Image</th>
@@ -78,10 +78,10 @@ const CompletedTask = () => {
                     </thead>
                     <tbody className="border dark:bg-gray-900 dark:border-gray-700">
                         {
-                            myAllTask?.map((task, i) => <tr key={task._id} className='border'>
-                                <td className="px-3 text-2xl font-medium dark:text-gray-400">{i + 1}</td>
+                            myAllTask?.map((task, i) => <tr key={task._id} className='border dark:border-gray-700'>
+                               <td className="px-3 text-2xl font-medium dark:text-white text-black">{i + 1}</td>
                                 <td className="px-3 py-2">
-                                    <p>{task.title}</p>
+                                <p className='dark:text-white text-black'>{task.title}</p>
                                 </td>
                                 <td className="px-3 py-2">
                                     <div className="avatar">
@@ -115,6 +115,7 @@ const CompletedTask = () => {
                                             ''
                                     }
                                 </td>
+                                <td></td>
                             </tr>)
                         }
                     </tbody>

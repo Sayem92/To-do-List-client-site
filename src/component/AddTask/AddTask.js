@@ -100,7 +100,7 @@ const AddTask = () => {
                     {errors.description && <p className='text-red-600'>{errors.description?.message}</p>}
 
 
-                    <div className="mt-6 flex justify-center gap-32">
+                    <div className="mt-6 flex justify-center gap-10 md:gap-32">
                         <button className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-green-500 rounded-lg hover:bg-green-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
                             Submit
                         </button>
