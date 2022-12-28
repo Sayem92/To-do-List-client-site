@@ -65,9 +65,13 @@ const Navbar = () => {
                 <ul className="flex items-center hidden space-x-8 lg:flex">
                     <li>
                         {
-                            user?.uid &&
+                            user?.uid ?
                             <button onClick={handleLogout}
                                 className='btn px-2 py-3 font-medium bg-gray-400 hover:bg-gray-500 border-none text-white rounded-xl'>Log out</button>
+                                :
+                                <Link to='/login'>
+                                <button className='btn px-2 py-3 font-medium bg-gray-400 hover:bg-gray-500 border-none text-white rounded-xl'>Login</button>
+                                </Link>
                         }
                     </li>
                 </ul>
@@ -162,9 +166,14 @@ const Navbar = () => {
                                         </li>
                                         <li>
                                             {
-                                                user?.uid &&
+                                                user?.uid ?
                                                 <button onClick={handleLogout}
                                                     className='btn px-3 py-3 font-medium bg-gray-400 hover:bg-gray-500 border-none text-black rounded'>Log out</button>
+                                                    :
+                                                <Link to='/login'>
+                                                <button
+                                                    className='btn px-3 py-3 font-medium bg-gray-400 hover:bg-gray-500 border-none text-black rounded'>Login</button>
+                                                </Link>
                                             }
                                         </li>
                                     </ul>

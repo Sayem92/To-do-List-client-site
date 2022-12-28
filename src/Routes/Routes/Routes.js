@@ -9,6 +9,7 @@ import Home from "../../component/Home/Home";
 import MyTask from "../../component/MyTask/MyTask";
 import UpdateTask from "../../component/UpdateTask/UpdateTask";
 import Main from "../../layout/Main";
+import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 
 export const router = createBrowserRouter([
     { 
@@ -22,11 +23,11 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/addTask',
-                element: <AddTask></AddTask>
+                element: <PrivateRoutes><AddTask></AddTask></PrivateRoutes>
             },
             {
                 path: '/myTask',
-                element: <MyTask></MyTask>
+                element: <PrivateRoutes><MyTask></MyTask></PrivateRoutes>
             },
             {
                 path: '/updateTask/:id',
@@ -36,11 +37,11 @@ export const router = createBrowserRouter([
             {
                 path: '/details/:id',
                 loader: ({params})=> fetch(`http://localhost:5000/myTask/${params.id}`),
-                element: <Details></Details>
+                element: <PrivateRoutes><Details></Details></PrivateRoutes>
             },
             {
                 path: '/completedTask',
-                element: <CompletedTask></CompletedTask>
+                element: <PrivateRoutes><CompletedTask></CompletedTask></PrivateRoutes>
             },
             {
                 path: '/login',
