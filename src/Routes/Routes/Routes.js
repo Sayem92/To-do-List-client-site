@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import AddTask from "../../component/AddTask/AddTask";
 import CompletedTask from "../../component/CompletedTask/CompletedTask";
+import Details from "../../component/Details/Details";
 import ErrorPage from "../../component/ErrorPage/ErrorPage";
 import Login from "../../component/Form/Login";
 import Register from "../../component/Form/Register";
@@ -31,6 +32,11 @@ export const router = createBrowserRouter([
                 path: '/updateTask/:id',
                 loader: ({params})=> fetch(`http://localhost:5000/myTask/${params.id}`),
                 element: <UpdateTask></UpdateTask>
+            },
+            {
+                path: '/details/:id',
+                loader: ({params})=> fetch(`http://localhost:5000/myTask/${params.id}`),
+                element: <Details></Details>
             },
             {
                 path: '/completedTask',

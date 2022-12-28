@@ -90,10 +90,12 @@ const MyTask = () => {
                                     </div>
                                 </td>
                                 <td className="px-3 py-2">
-                                    <p>{task.description}</p>
+                                    <Link to={`/details/${task._id}`} >
+                                    <button className='px-2 py-3 rounded bg-green-500 text-white'>Details</button>
+                                    </Link>
                                 </td>
                                 <td className="px-3 py-2">
-                                <button className='px-2 py-3 rounded bg-green-500 text-white'>
+                                <button className='px-2 py-3 rounded text-black'>
                                    
                                     {
                                         task.completed === "true" ? "Completed" : "Not Completed"
