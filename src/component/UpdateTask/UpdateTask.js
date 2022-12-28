@@ -45,7 +45,7 @@ const UpdateTask = () => {
                             email: user?.email
                         }
 
-                        fetch(`http://localhost:5000/addTask/${_id}`, {
+                        fetch(`https://to-do-list-server-site.vercel.app/addTask/${_id}`, {
                             method: 'PUT',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify(addTask)
@@ -79,7 +79,7 @@ const UpdateTask = () => {
                 email: user?.email
             }
 
-            fetch(`http://localhost:5000/addTask/${_id}`, {
+            fetch(`https://to-do-list-server-site.vercel.app/addTask/${_id}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(addTask)

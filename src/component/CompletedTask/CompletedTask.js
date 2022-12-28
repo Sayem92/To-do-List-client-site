@@ -10,7 +10,7 @@ const CompletedTask = () => {
     const { data: myAllTask = [], isLoading, refetch } = useQuery({
         queryKey: [''],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/myTask/${user?.email}`)
+            const res = await fetch(`https://to-do-list-server-site.vercel.app/myTask/${user?.email}`)
             const data = await res.json()
             return data;
         }
@@ -22,7 +22,7 @@ const CompletedTask = () => {
         const agreed = window.confirm('Are you sure you want to delete')
         if (agreed) {
 
-            fetch(`http://localhost:5000/myTask/${_id}`, {
+            fetch(`https://to-do-list-server-site.vercel.app/myTask/${_id}`, {
                 method: "DELETE"
             })
                 .then(res => res.json())
@@ -79,9 +79,9 @@ const CompletedTask = () => {
                     <tbody className="border dark:bg-gray-900 dark:border-gray-700">
                         {
                             myAllTask?.map((task, i) => <tr key={task._id} className='border dark:border-gray-700'>
-                               <td className="px-3 text-2xl font-medium dark:text-white text-black">{i + 1}</td>
+                                <td className="px-3 text-2xl font-medium dark:text-white text-black">{i + 1}</td>
                                 <td className="px-3 py-2">
-                                <p className='dark:text-white text-black'>{task.title}</p>
+                                    <p className='dark:text-white text-black'>{task.title}</p>
                                 </td>
                                 <td className="px-3 py-2">
                                     <div className="avatar">

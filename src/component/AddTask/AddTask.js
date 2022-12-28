@@ -36,7 +36,7 @@ const AddTask = () => {
                             email: user?.email
                         }
 
-                        fetch('http://localhost:5000/addTask', {
+                        fetch('https://to-do-list-server-site.vercel.app/addTask', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify(addTask)

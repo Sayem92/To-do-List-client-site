@@ -10,7 +10,7 @@ const MyTask = () => {
     const { data: myAllTask = [], isLoading, refetch } = useQuery({
         queryKey: [''],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/myTask/${user?.email}`)
+            const res = await fetch(`https://to-do-list-server-site.vercel.app/myTask/${user?.email}`)
             const data = await res.json()
             return data;
         }
@@ -22,7 +22,7 @@ const MyTask = () => {
         const agreed = window.confirm('Are you sure you want to delete')
         if (agreed) {
 
-            fetch(`http://localhost:5000/myTask/${_id}`, {
+            fetch(`https://to-do-list-server-site.vercel.app/myTask/${_id}`, {
                 method: "DELETE"
             })
                 .then(res => res.json())
@@ -92,20 +92,20 @@ const MyTask = () => {
                                 </td>
                                 <td className="px-3 py-2">
                                     <Link to={`/details/${task._id}`} >
-                                    <button className='px-2 py-3 rounded bg-green-500 text-white'>Details</button>
+                                        <button className='px-2 py-3 rounded bg-green-500 text-white'>Details</button>
                                     </Link>
                                 </td>
                                 <td className="px-3 py-2">
-                                <button className='px-2 py-3 rounded text-black dark:text-white'>
-                                   
-                                    {
-                                        task.completed === "true" ? "Completed" : "Not Completed"
-                                    }
+                                    <button className='px-2 py-3 rounded text-black dark:text-white'>
+
+                                        {
+                                            task.completed === "true" ? "Completed" : "Not Completed"
+                                        }
                                     </button>
                                 </td>
                                 <td className="px-3 py-2">
                                     <Link to={`/updateTask/${task._id}`} >
-                                    <button className='px-2 py-3 rounded bg-sky-500 text-white'>Update</button>
+                                        <button className='px-2 py-3 rounded bg-sky-500 text-white'>Update</button>
                                     </Link>
                                 </td>
                                 <td className="px-3 py-2">

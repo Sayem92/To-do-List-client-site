@@ -12,8 +12,8 @@ import Main from "../../layout/Main";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 
 export const router = createBrowserRouter([
-    { 
-        path:'/',
+    {
+        path: '/',
         element: <Main></Main>,
         errorElement: <ErrorPage></ErrorPage>,
         children: [
@@ -31,12 +31,12 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/updateTask/:id',
-                loader: ({params})=> fetch(`http://localhost:5000/myTask/${params.id}`),
+                loader: ({ params }) => fetch(`https://to-do-list-server-site.vercel.app/myTask/${params.id}`),
                 element: <UpdateTask></UpdateTask>
             },
             {
                 path: '/details/:id',
-                loader: ({params})=> fetch(`http://localhost:5000/myTask/${params.id}`),
+                loader: ({ params }) => fetch(`https://to-do-list-server-site.vercel.app/myTask/${params.id}`),
                 element: <PrivateRoutes><Details></Details></PrivateRoutes>
             },
             {
