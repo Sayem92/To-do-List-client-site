@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 import Loading from '../Loading/Loading';
 import { RadioGroup } from '@headlessui/react'
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const UpdateTask = () => {
     const { title, description, image, _id } = useLoaderData();
     const [loading, setLoading] = useState(false);
     const [img, setImg] = useState(image);
     const [complete, setComplete] = useState('');
+    const { user } = useContext(AuthContext);
 
 
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -39,7 +41,8 @@ const UpdateTask = () => {
                             title: data.title,
                             image: newPic,
                             description: data.description,
-                            completed: complete
+                            completed: complete,
+                            email: user?.email
                         }
 
                         fetch(`http://localhost:5000/addTask/${_id}`, {
@@ -72,7 +75,8 @@ const UpdateTask = () => {
                 title: data.title,
                 image: img,
                 description: data.description,
-                completed: complete
+                completed: complete,
+                email: user?.email
             }
 
             fetch(`http://localhost:5000/addTask/${_id}`, {
@@ -111,6 +115,12 @@ const UpdateTask = () => {
                             className="block w-full px-5 py-3 text-gray-700 bg-white border rounded-lg dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Title" />
                     </div>
                     {errors.title && <p className='text-red-600'>{errors.title?.message}</p>}
+
+                    <div className="relative flex items-center mt-4">
+                        <input type="email"
+                            defaultValue={user?.email} readOnly
+                            className="block w-full px-5 py-3 text-gray-700 bg-white border rounded-lg dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="email" />
+                    </div>
 
 
                     <label htmlFor="dropzone-file" className="flex items-center px-3 py-3 mx-auto mt-4 text-center bg-white border-2 border-dashed rounded-lg cursor-pointer dark:border-gray-600 dark:bg-gray-900">

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
     return (
@@ -8,7 +9,9 @@ const Home = () => {
                     <h1 className="text-5xl font-bold leading-none sm:text-6xl xl:max-w-3xl dark:text-gray-900">Having a to-do list can make things much easier.</h1>
                     <p className="mt-6 mb-8 text-lg sm:mb-12 xl:max-w-3xl dark:text-gray-900">To-do List a list of tasks you need to complete or things that you want to do.</p>
                     <div className="flex flex-wrap justify-center">
+                        <Link to='/addTask'>
                         <button type="button" className="px-8 py-3 m-2 text-lg font-semibold rounded bg-green-500 text-gray-50">Add Task</button>
+                        </Link>
                     </div>
                 </div>
             </div>

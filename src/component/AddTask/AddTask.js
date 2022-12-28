@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const AddTask = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
+    const { user } = useContext(AuthContext);
     const imageHostKey = process.env.REACT_APP_IMGBB_key;
     const navigate = useNavigate()
 
@@ -30,7 +32,8 @@ const AddTask = () => {
                             title: data.title,
                             image: imgData.data.display_url,
                             description: data.description,
-                            completed: false
+                            completed: false,
+                            email: user?.email
                         }
 
                         fetch('http://localhost:5000/addTask', {

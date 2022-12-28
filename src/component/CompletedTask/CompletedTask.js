@@ -1,15 +1,16 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useContext } from 'react';
 import { toast } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Loading from '../Loading/Loading';
 
 const CompletedTask = () => {
-
+    const { user } = useContext(AuthContext);
     const { data: myAllTask = [], isLoading, refetch } = useQuery({
         queryKey: [''],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/myTask`)
+            const res = await fetch(`http://localhost:5000/myTask/${user?.email}`)
             const data = await res.json()
             return data;
         }
@@ -91,25 +92,25 @@ const CompletedTask = () => {
                                 </td>
                                 <td className="px-3 py-2">
                                     <Link to={`/details/${task._id}`} >
-                                    <button className='px-2 py-3 rounded bg-green-500 text-white'>Details</button>
+                                        <button className='px-2 py-3 rounded bg-green-500 text-white'>Details</button>
                                     </Link>
                                 </td>
                                 <td className="px-3 py-2">
-                                {
-                                    task.completed ==="true" ?
-                                    <button className='px-2 py-3 rounded bg-blue-500 text-white'>Completed</button>
-                                    :
-                                    <Link to='/myTask'>
-                                    <button className='px-2 py-3 rounded bg-blue-500 text-white'>Not Completed</button>
-                                    </Link>
-                                }
+                                    {
+                                        task.completed === "true" ?
+                                            <button className='px-2 py-3 rounded bg-blue-500 text-white'>Completed</button>
+                                            :
+                                            <Link to='/myTask'>
+                                                <button className='px-2 py-3 rounded bg-blue-500 text-white'>Not Completed</button>
+                                            </Link>
+                                    }
 
                                 </td>
                                 <td className="px-3 py-2">
                                     {
-                                        task.completed ==='true' ? 
-                                        <button onClick={() => handleDeletingMyTask(task._id)}
-                                            className='px-2 py-3 rounded bg-red-500 text-white'>Delate</button>
+                                        task.completed === 'true' ?
+                                            <button onClick={() => handleDeletingMyTask(task._id)}
+                                                className='px-2 py-3 rounded bg-red-500 text-white'>Delate</button>
                                             :
                                             ''
                                     }
