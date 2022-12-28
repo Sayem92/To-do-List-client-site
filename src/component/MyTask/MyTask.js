@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { toast } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
+import Loading from '../Loading/Loading';
 
 const MyTask = () => {
 
@@ -34,13 +35,10 @@ const MyTask = () => {
         }
     };
 
-   
-
-
 
 
     if (isLoading) {
-        return <h1>loading............</h1>
+        return <Loading></Loading>
     }
 
     if (!myAllTask.length) {
@@ -96,11 +94,16 @@ const MyTask = () => {
                                 </td>
                                 <td className="px-3 py-2">
                                 <Link to='/completedTask'>
-                                <button className='px-2 py-3 rounded bg-green-500 text-white'>Completed</button>
+                                <button className='px-2 py-3 rounded bg-green-500 text-white'>
+                                   
+                                    {
+                                        task.completed === "true" ? "Completed" : "UnCompleted"
+                                    }
+                                    </button>
                                 </Link>
                                 </td>
                                 <td className="px-3 py-2">
-                                    <Link to='/updateTask'>
+                                    <Link to={`/updateTask/${task._id}`} >
                                     <button className='px-2 py-3 rounded bg-sky-500 text-white'>Update</button>
                                     </Link>
                                 </td>

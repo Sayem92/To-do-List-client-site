@@ -28,7 +28,8 @@ export const router = createBrowserRouter([
                 element: <MyTask></MyTask>
             },
             {
-                path: '/updateTask',
+                path: '/updateTask/:id',
+                loader: ({params})=> fetch(`http://localhost:5000/myTask/${params.id}`),
                 element: <UpdateTask></UpdateTask>
             },
             {
