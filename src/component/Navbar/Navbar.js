@@ -59,7 +59,7 @@ const Navbar = () => {
                     className="inline-flex items-center"
                 >
 
-                    <span className="ml-2 text-xl font-bold tracking-wide dark:text-green-500 uppercase">
+                    <span className="ml-2 text-xl font-bold tracking-wide hover:text-black dark:text-green-500 uppercase">
                         To-do List
                     </span>
                 </Link>
@@ -96,11 +96,11 @@ const Navbar = () => {
                          isActive ? activeStyle : undefined
                        }
                             to="/completedTask"
-                            aria-label="Completed Tasks"
-                            title="Completed Tasks"
+                            aria-label="Completed Task"
+                            title="Completed Task"
                             className="font-medium tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400"
                         >
-                            Completed Tasks
+                            Completed Task
                         </NavLink>
                     </li>
                 </ul>
@@ -210,11 +210,11 @@ const Navbar = () => {
                                         <li>
                                             <Link
                                                 to="/completedTask"
-                                                aria-label="Completed Tasks"
-                                                title="Completed Tasks"
+                                                aria-label="Completed Task"
+                                                title="Completed Task"
                                                 className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                                             >
-                                                Completed Tasks
+                                                Completed Task
                                             </Link>
                                         </li>
                                         <li>

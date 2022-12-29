@@ -43,7 +43,7 @@ const CompletedTask = () => {
     }
 
     if (!myAllTask.length) {
-        return <div className='p-5 mt-8 md:pb-44 flex justify-center'>
+        return <div className='dark:bg-gray-900 p-5 py-40 md:pb-44 flex justify-center'>
             <h1 className='text-3xl text-yellow-500'>No Task Added!.
                 <span className='text-blue-500 underline'
                 ><Link to='/addTask'> Please add any Task</Link></span>
