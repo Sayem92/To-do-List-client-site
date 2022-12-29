@@ -6,7 +6,7 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const Register = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const { createUser, updateUser, googleLogin } = useContext(AuthContext);
+    const { createUser, updateUser, googleLogin, setLoading } = useContext(AuthContext);
     const [signUpError, setSignUpError] = useState('');
 
     const navigate = useNavigate();
@@ -40,6 +40,9 @@ const Register = () => {
             .catch(err => {
                 console.log(err);
                 setSignUpError(err.message);
+            })
+            .finally(() => {
+                setLoading(false)
             })
     };
 

@@ -27,7 +27,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/myTask',
-                element: <PrivateRoutes><MyTask></MyTask></PrivateRoutes>
+                element: <MyTask></MyTask>
             },
             {
                 path: '/updateTask/:id',
@@ -37,11 +37,11 @@ export const router = createBrowserRouter([
             {
                 path: '/details/:id',
                 loader: ({ params }) => fetch(`https://to-do-list-server-site.vercel.app/details/${params.id}`),
-                element: <PrivateRoutes><Details></Details></PrivateRoutes>
+                element: <Details></Details>
             },
             {
                 path: '/completedTask',
-                element: <PrivateRoutes><CompletedTask></CompletedTask></PrivateRoutes>
+                element: <CompletedTask></CompletedTask>
             },
             {
                 path: '/login',
